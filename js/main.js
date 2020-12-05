@@ -39,17 +39,29 @@ smoothScroll.init();
   if( $('#e_chart_3').length > 0 ){
     var eChart_3 = echarts.init(document.getElementById('e_chart_3'));
     var data = [{
-      value: 1945,
-      name: ''
+      value: 20,
+      name: 'S & M'
     }, {
-      value: 2580,
-      name: ''
+      value: 10,
+      name: 'Eco'
     }, {
-      value: 5160,
-      name: ''
+      value: 35,
+      name: 'Staking'
     }, {
-      value: 54826,
-      name: ''
+      value: 15,
+      name: 'T & A'
+    }, {
+      value: 9,
+      name: 'Dev'
+    }, {
+      value: 5,
+      name: 'PS'
+    }, {
+      value: 5,
+      name: 'AD'
+    }, {
+      value: 1,
+      name: 'Rsvd'
     }];
     var option3 = {
       tooltip: {
@@ -71,7 +83,7 @@ smoothScroll.init();
         type: 'pie',
         selectedMode: 'single',
         radius: ['90%', '30%'],
-        color: ['#a8a9bd','#9395b9', '#656790', '#3e406e'],
+        color: ['#8C8CA7', '#a8a9bd','#9395b9', '#656790', '#3e406e', '#242563','#585878', '#D7D8E5'],
         labelLine: {
           normal: {
             show: false

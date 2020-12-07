@@ -2,40 +2,6 @@
 window.addEventListener('load', async () => {
     // get eth current price from coingecko
 
-    axios.get('https://coderbyte.com/api/challenges/json/json-cleaning')
-        .then(function (response) {
-
-            console.log("EMEKA THINGS");
-            let data = response.data;
-            console.log(iterate(data))
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .then(function () {
-            // always executed
-        });
-
-    const iterate = (obj) => {
-        const elementsToRemove = ['', 'N/A', '-' ]
-        const processedData =[]
-        Object.keys(obj).forEach(key => {
-            if (elementsToRemove.includes(obj[key])){
-                delete obj[key]
-
-            }
-            processedData.push(obj[key])
-            console.log('key: '+ key + ', value: '+obj[key]);
-
-            if (typeof obj[key] === 'object') {
-                iterate(obj[key])
-            }
-        })
-        return processedData
-    }
-
-
     axios.get('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
         .then(function (response) {
             $("#ethUSDValue").val(response.data.ethereum.usd);
@@ -83,12 +49,17 @@ window.addEventListener('load', async () => {
     else {
        // console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
 
-        Swal.fire(
-            'Error!!',
-            "Non-Ethereum browser detected. You should consider trying MetaMask! on Google Chrome or drop this link in your Trust Wallet DAPP",
-            'error'
-        );
-    //    $("#walletHolder").html('Non-Ethereum browser detected. You should consider trying MetaMask! on Google Chrome');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Non-Ethereum browser detected. You should consider trying MetaMask! on Google Chrome or drop this link in your Trust Wallet DAPP',
+            footer: '<a href="https://link.trustwallet.com/open_url?url=https://dragonfinance.net/public_sale.html">Open With Trust Wallet on mobile?</a>'
+        })
+
+
+
+
+        //    $("#walletHolder").html('Non-Ethereum browser detected. You should consider trying MetaMask! on Google Chrome');
 
     }
 

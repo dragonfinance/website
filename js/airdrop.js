@@ -32,11 +32,12 @@ window.addEventListener('load', async () => {
     else {
         // console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
 
-        Swal.fire(
-            'Error!!',
-            "Non-Ethereum browser detected. You should consider trying MetaMask! on Google Chrome or drop this link in your Trust Wallet DAPP",
-            'error'
-        );
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Non-Ethereum browser detected. You should consider trying MetaMask! on Google Chrome or drop this link in your Trust Wallet DAPP',
+            footer: '<a href="https://link.trustwallet.com/open_url?url=https://dragonfinance.net/airdrop.html">Open With Trust Wallet on mobile?</a>'
+        })
         //    $("#walletHolder").html('Non-Ethereum browser detected. You should consider trying MetaMask! on Google Chrome');
 
     }
